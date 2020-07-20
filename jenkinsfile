@@ -3,12 +3,13 @@ pipeline {
          stages {
                  stage('One') {
                  steps {
-                     echo 'Hi, this is Zulaikha from edureka'
+                     echo 'Hi, this is ramu from TATA. Build stage'
                  }
                  }
                  stage('Two') {
                  steps {
                     input('Do you want to proceed?')
+                    echo 'Test stage'
                  }
                  }
                  stage('Three') {
@@ -18,7 +19,7 @@ pipeline {
                        }
                  }
                  steps {
-                       echo "Hello"
+                       echo "Hello Deployment stage"
                  }
                  }
                  
