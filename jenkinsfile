@@ -19,7 +19,7 @@ pipeline {
           }
         steps {
             withSonarQubeEnv('sonar') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=DEMO_SMSjob -Dsonar.projectName=DEMO_SMSjob -Dsonar.projectVersion=1.0 -Dsonar.sources=app/src -Dsonar.java.binaries=app/src/main/java -Dsonar.projectBaseDir=. -Dsonar.host.url=http://10.75.17.139:9000 -Dsonar.sourceEncoding=UTF-8"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=Demo -Dsonar.projectName=Demo -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/Demo -Dsonar.host.url=http://localhost:9000 -Dsonar.sourceEncoding=UTF-8"
                   }
              }
         }
