@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Build'){
         steps{
-        sh cd  /var/lib/jenkins/workspace/demopipeline1
-        sh python 
+        cd  /var/lib/jenkins/workspace/demopipeline1
+        sh python /var/lib/jenkins/workspace/Demo/ex1.py
         
         }
         }
