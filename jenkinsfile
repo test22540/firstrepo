@@ -9,7 +9,7 @@ pipeline {
         stage('Build'){
         steps{
         
-        sh python /var/lib/jenkins/workspace/Demo/ex1.py
+        sh 'python /var/lib/jenkins/workspace/Demo/ex1.py'
         
         }
         }
