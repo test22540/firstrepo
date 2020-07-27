@@ -13,5 +13,16 @@ pipeline {
         
         }
         }
+        stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'sonar-scanner'
+    }    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/downloads1/sonarqube/sonar-scanner-4.2.0.1873-linux"
+        }        timeout(time: 3, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+}
     }
 }
