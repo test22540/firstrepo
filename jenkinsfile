@@ -13,15 +13,15 @@ pipeline {
         
         }
         }
-        stage('Sonarqube') {
-   
-        def scannerHome = tool 'sonar-scanner';
+         stage('SonarQube analysis') {
+        environment {
+            scannerHome = tool 'sonar_scanner'
+          }
         steps {
-        withSonarQubeEnv('sonar') {
-            sh "${tool('sonar-scanner')}/downloads1/sonarqube/sonar-scanner-4.2.0.1873-linux"
-        
+            withSonarQubeEnv('sonar') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=DEMO_SMSjob -Dsonar.projectName=DEMO_SMSjob -Dsonar.projectVersion=1.0 -Dsonar.sources=app/src -Dsonar.java.binaries=app/src/main/java -Dsonar.projectBaseDir=. -Dsonar.host.url=http://10.75.17.139:9000 -Dsonar.sourceEncoding=UTF-8"
+                  }
+             }
         }
-    }
-}
     }
 }
