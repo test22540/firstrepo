@@ -1,0 +1,27 @@
+pipeline {
+     agent any
+    stages {
+        stage('Git checkout') {
+            steps {
+                git credentialsId: '5c67fae8-a1ba-48f4-a0f3-f2b2625f7ab7', url: 'https://github.com/test22540/firstrepo.git'
+            }
+        }
+        stage('Build'){
+        steps{
+        
+        sh 'python /var/lib/jenkins/workspace/Demo/ex1.py'
+        
+        }
+        }
+         stage('SonarQube analysis') {
+        environment {
+            scannerHome = tool 'sonar_scanner'
+          }
+        steps {
+            withSonarQubeEnv('sonar') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=Demo -Dsonar.projectName=Demo -Dsonar.projectVersion=1.0 -Dsonar.sources=/var/lib/jenkins/workspace/Demo -Dsonar.host.url=http://localhost:9000 -Dsonar.sourceEncoding=UTF-8"
+                  }
+             }
+        }
+    }
+}
