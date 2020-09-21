@@ -1,5 +1,5 @@
-
-class MisspelledVar { 
+package junitestcase;
+class simJun { 
     public static void main(String args[]) 
     { 
         int a = 40, b = 10;
