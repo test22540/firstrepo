@@ -2,7 +2,7 @@
 class MisspelledVar { 
     public static void main(String args[]) 
     { 
-        int a = 40, b = 0;
+        int a = 40, b = 10;
         int c=10
   
         // Declared variable Sum with Capital S 
