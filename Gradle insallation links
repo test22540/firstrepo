@@ -4,4 +4,25 @@ https://guides.gradle.org/executing-gradle-builds-on-jenkins/(jenkins part)
 https://vocon-it.com/2017/01/06/getting-started-with-jenkins-part-4-1-functional-java-tests-via-junit/
 mv dir1 dir2(to move the whole directory).
 chmod -R 777 (directory name or file name)(to give permissions).
+------------------------------------------------------
+ERROR:
+java.io.IOException: Unable to delete directory '/var/lib/jenkins/workspace/demo/build'
+    Failed to delete some children. This might happen because a process has files open or has its working directory set in the target directory.
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/packages/demo.html
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/packages
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/classes/demo.AppTest.html
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/classes
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/js/report.js
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/js
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/css/base-style.css
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/css/style.css
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/css
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test/index.html
+    - /var/lib/jenkins/workspace/demo/build/reports/tests/test
+    - /var/lib/jenkins/workspace/demo/build/reports/tests
+    - /var/lib/jenkins/workspace/demo/build/reports
+    - /var/lib/jenkins/workspace/demo/build/classes/java/test/demo/AppTest.class
+    - /var/lib/jenkins/workspace/demo/build/classes/java/test/demo
+    - /var/lib/jenkins/workspace/demo/build/classes/java/test
+    execute './gradlew clean' from command line.
 
