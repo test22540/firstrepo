@@ -1,3 +1,6 @@
 https://yallalabs.com/devops/how-to-install-gradle-ubuntu-18-04-ubuntu-16-04/(gradle installation).
 https://guides.gradle.org/building-java-applications/(for creating the gradle task).
 https://guides.gradle.org/executing-gradle-builds-on-jenkins/(jenkins part)
+mv dir1 dir2(to move the whole directory).
+chmod -R 777 (directory name or file name)(to give permissions).
+
