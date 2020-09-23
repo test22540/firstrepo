@@ -5,6 +5,9 @@ https://vocon-it.com/2017/01/06/getting-started-with-jenkins-part-4-1-functional
 mv dir1 dir2(to move the whole directory).
 chmod -R 777 (directory name or file name)(to give permissions).
 https://www.youtube.com/watch?v=avDOJyydkqw(gradle pipeline).
+to install jacoco:
+1. first install plugin from manage jenkins(jacoco plugin name to be searched),
+2. Go to the job in configure ->post build actions->record jacoco coverage report->apply -> save and run the job.
 ------------------------------------------------------
 ERROR:
 java.io.IOException: Unable to delete directory '/var/lib/jenkins/workspace/demo/build'
