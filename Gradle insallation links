@@ -28,5 +28,22 @@ java.io.IOException: Unable to delete directory '/var/lib/jenkins/workspace/demo
     - /var/lib/jenkins/workspace/demo/build/classes/java/test/demo/AppTest.class
     - /var/lib/jenkins/workspace/demo/build/classes/java/test/demo
     - /var/lib/jenkins/workspace/demo/build/classes/java/test
-    execute './gradlew clean' from command line.
+    solution - Execute './gradlew clean' from command line.
+    
+    ----------------------------------------------------------------------------------------------
+    Error while reading the source file inside the code coverage report:
+    
+    Solution - setting the sourcePattern to '**/src/*/java' which by default it is set to '**/src/main/java' in configuration.
+    ----------------------------------------------------------------------------------------------------------------------------
+    if no line is covered by jacoco then add the following:
 
+plugins {
+    id 'jacoco'
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
