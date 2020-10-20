@@ -1,0 +1,41 @@
+import jenkins
+import re
+import requests
+import json
+import jenkinsapi
+from jenkinsapi.jenkins import Jenkins
+url="http://localhost:8080"
+data = requests.get(url)
+#print(data.json())
+j = Jenkins(url, username='ramu',
+                         password='root@123')
+print(j.keys())
+print(j['Demo'])
+k=j['Demo'].get_last_good_build()
+print(j['Demo'].get_build_metadata(39))
+#builds = jenkins.get_all_builds(folder_depth=None)
+#print(builds)
+server = jenkins.Jenkins('http://localhost:8080/', username='ramu',
+                         password='root@123')
+jobs = server.get_all_jobs(folder_depth=None)
+print(jobs)
+builds = server.get_build_info('Gradle',42)
+m = builds['duration']
+millis = int(m)
+seconds=(millis/1000)%60
+seconds = int(seconds)
+minutes=(millis/(1000*60))%60
+minutes = int(minutes)
+hours=(millis/(1000*60*60))%24
+
+print ("%d:%d:%d" % (hours, minutes, seconds))
+print()
+print(builds['duration'])
+sonar_links=[]
+jenkins_jobs_links=[]
+
+
+for i in range(0,len(jobs)):
+      #print(jobs[i]['name'])
+      name=str(jobs[i]['name'])
+      info = server.get_job_info(name)
